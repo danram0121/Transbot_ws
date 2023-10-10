@@ -7,7 +7,7 @@ These packages are the foundation for the substation inspection robot.
 Make sure you create a directory for the packages in this repo. I am using a directory named **Transbot_ws**. In the **Transbot_ws** there is a **src** folder and all the packages in this repo are intended to be in that **src** directory.
 <br>
 
-Remember to build in the Transbot_ws directory wheneber a new file is created
+Remember to build in the Transbot_ws directory whenever a new file is created
 
 ```
     colcon build
