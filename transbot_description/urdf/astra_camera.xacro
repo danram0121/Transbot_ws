@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+       <!-- camera -->
+    <link name="astra_link">
+        <inertial>
+            <origin xyz="0.0003 -3.63185E-06 -0.01238" rpy="0 0 0"/>
+            <mass value="0.249477026881758"/>
+            <inertia
+                    ixx="0.000512759440122099"
+                    ixy="3.59531977965561E-08"
+                    ixz="-7.77105312830466E-06"
+                    iyy="0.000168771991127263"
+                    iyz="4.52266817392523E-08"
+                    izz="0.000428421579554258"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://transbot_description/meshes/astra_link.STL"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.7 0.7 0.7 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://transbot_description/meshes/astra_link.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="astra_joint" type="revolute">
+        <origin xyz="0.0484 0 0.10494" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="astra_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-0.52358" upper="0.52358" effort="100" velocity="1"/>
+    </joint>
+</robot>
