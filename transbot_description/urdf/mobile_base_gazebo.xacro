@@ -6,6 +6,10 @@
         <material>Gazebo/Green</material>
     </gazebo>
 
+    <gazebo reference="laser_frame">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
     <gazebo reference="left_wheel_link">
         <material>Gazebo/Grey</material>
     </gazebo>
