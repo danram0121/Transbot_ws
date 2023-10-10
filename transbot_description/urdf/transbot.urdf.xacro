@@ -4,6 +4,7 @@
     <xacro:include filename="common_properties.xacro"/>
     <xacro:include filename="mobile_base.xacro"/>
     <xacro:include filename="astra_camera.xacro"/>
+    <xacro:include filename="lidar.xacro"/>
     <!-- to include yahboom arm uncomment next line -->
     <!-- <xacro:include filename="transbot_arm.xacro"/> -->
     <xacro:include filename="mobile_base_gazebo.xacro"/>
