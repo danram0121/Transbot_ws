@@ -80,10 +80,10 @@ Colcon build with symlink will let you skip building only if no new files have b
 #### Complete:
 
 - Robot description model: Base model (frame, wheels)
+- Robot description model: Lidar (RPLidar A1)
 
 #### To Do:
 
-- Robot description model: Lidar (RPLidar A1)
 - Robot description model: Camera (intel realsense d435)
 - - later we will need to integrate the thermal sensor into the description model as well
 - Robot control: teleop_twist_keyboard (keyboard directed movement)
