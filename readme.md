@@ -84,10 +84,11 @@ Colcon build with symlink will let you skip building only if no new files have b
 
 #### To Do:
 
-- Robot description model: Camera (intel realsense d435)
-- - later we will need to integrate the thermal sensor into the description model as well
+- create robot msg package using ros
+- Robot description model: Camera (Astra Pro)
+- - later we will need to integrate the thermal sensor into the description model as well thermal seek has ROS package
 - Robot control: teleop_twist_keyboard (keyboard directed movement)
 - Robot control: teleop_twist_joy (controller directed movement)
 - Nav2 package for autonomous navigation
-- a function that launches the robot navigation on raspberry pi startup
+- a function that launches the robot navigation on raspberry pi startup (bash file added to startup applications)
 - a way to control what package is running (auto navigation, keyboard nav, controller nav) as in toggling between packages
