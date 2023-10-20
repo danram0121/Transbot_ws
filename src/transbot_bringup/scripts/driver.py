@@ -1,26 +1,29 @@
+from Transbot_Lib import Transbot
+from transbot_bringup.cfg import PIDparamConfig
+from dynamic_reconfigure.server import Server
+from transbot_msgs.msg import Edition, Battery
+from transbot_msgs.srv import RobotArm, RGBLight, Buzzer, Headlight, PWMServo
+from transbot_msgs.msg import Arm, Joint
+from std_msgs.msg import Int32
+from sensor_msgs.msg import Imu
+from geometry_msgs.msg import Twist
+from rclpy.node import Node
+import rclpy
 import sys
 sys.path.append("/home/yahboom/py_install-V3.2.5/py_install")
 
-import rclpy
-from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from sensor_msgs.msg import Imu
-from std_msgs.msg import Int32
-from transbot_msgs.msg import Arm, Joint
-from transbot_msgs.srv import RobotArm, RGBLight, Buzzer, Headlight, PWMServo
-from transbot_msgs.msg import Edition, Battery
-from dynamic_reconfigure.server import Server
-from transbot_bringup.cfg import PIDparamConfig
-from Transbot_Lib import Transbot
 
 class TransbotDriver(Node):
     def __init__(self):
         super().__init__('driver_node')
-        self.create_subscription(Int32, '/control_mode', self.control_mode_callback, 10)
+        self.create_subscription(
+            Int32, '/control_mode', self.control_mode_callback, 10)
         self.create_subscription(Twist, '/cmd_vel', self.cmd_vel_callback, 10)
         self.create_subscription(Arm, '/TargetAngle', self.sub_armcallback, 10)
-        self.create_subscription(PWMServo, '/PWMServo', self.sub_PWMServocallback, 10)
-        self.create_subscription(PIDparamConfig, 'parameter_updates', self.dynamic_reconfigure_callback, 10)
+        self.create_subscription(
+            PWMServo, '/PWMServo', self.sub_PWMServocallback, 10)
+        self.create_subscription(
+            PIDparamConfig, 'parameter_updates', self.dynamic_reconfigure_callback, 10)
         self.create_service(RobotArm, '/CurrentAngle', self.RobotArmcallback)
         self.create_service(RGBLight, '/RGBLight', self.RGBLightcallback)
         self.create_service(Buzzer, '/Buzzer', self.Buzzercallback)
@@ -36,9 +39,6 @@ class TransbotDriver(Node):
         self.linear_min = 0.0
         self.angular_max = 2.0
         self.angular_min = 0.0
-
-
-    # ... (previous code)
 
     def control_mode_callback(self, msg):
         # Example: Control mode callback
@@ -142,7 +142,6 @@ class TransbotDriver(Node):
 
             rate.sleep()
 
-# ... (remaining code)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -151,6 +150,7 @@ def main(args=None):
     rclpy.spin(driver)
     driver.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
